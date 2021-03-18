@@ -1,0 +1,130 @@
+
+<html>
+<head>
+<title>PDFs - Ruby on Rails</title>
+    <%= wicked_pdf_stylesheet_link_tag "quotation" %>
+</head>
+<body>
+    
+
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<!------ Include the above in your HEAD tag ---------->
+
+		<!--Author      : @arboshiki-->
+		<div id="invoice">
+
+		    <div class="toolbar hidden-print">
+		        <!-- <div class="text-right">
+		            <button id="printInvoice" class="btn btn-info"><i class="fa fa-print"></i> Print</button>
+		            <button class="btn btn-info"><i class="fa fa-file-pdf-o"></i> Export as PDF</button>
+		        </div> -->
+		        <hr>
+		    </div>
+		    <div class="invoice overflow-auto">
+		        <div style="min-width: 600px">
+		            <header>
+		                <div class="row">
+		                    <div class="col">
+		                        <a target="_blank" href="#">Company logo
+		                            <!-- <img src="http://lobianijs.com/lobiadmin/version/1.0/ajax/img/logo/lobiadmin-logo-text-64.png" data-holder-rendered="true" /> -->
+		                            </a>
+		                    </div>
+		                    <div class="col company-details">
+		                        <h2 class="name">
+		                            <a target="_blank" href="#"></a>
+		                        </h2>
+		                        <div>Company Address</div>
+		                        <div>(000) 000-000</div>
+		                        <div>company@example.com</div>
+		                    </div>
+		                </div>
+		            </header>
+		            <main>
+		                <div class="row contacts">
+		                    <div class="col invoice-to">
+		                        <div class="text-gray-light">QUOTATION TO:</div>
+		                        <h2 class="to">Customer Name</h2>
+		                        <div class="address">Customer address</div>
+		                        <div class="email"><a href="mailto:example@example.com">customer.mail@example.com</a></div>
+		                    </div>
+		                    <div class="col invoice-details">
+		                        <h1 class="invoice-id">QUOTATION 3-2-1</h1>
+		                        <div class="date">Date: 01/03/2021</div>
+		                    </div>
+		                </div>
+		                <table border="0" cellspacing="0" cellpadding="0">
+		                    <thead>
+		                        <tr>
+		                            <th>#</th>
+		                            <th class="text-left">DESCRIPTION</th>
+		                            <th class="text-right">PRICE</th>
+		                            <th class="text-right">Qut</th>
+		                            <th class="text-right">TOTAL</th>
+		                        </tr>
+		                    </thead>
+		                    <tbody>
+		                        <tr>
+		                            <td class="no">01</td>
+		                            <td class="text-left"><h3>JB Glass</h3>Product Discription</td>
+		                            <td class="unit">0.00</td>
+		                            <td class="qty">10</td>
+		                            <td class="total">0.00</td>
+		                        </tr>
+		                        <tr>
+		                            <td class="no">02</td>
+		                            <td class="text-left"><h3>JB Glass</h3>Product Discription</td>
+		                            <td class="unit">40.00</td>
+		                            <td class="qty">30</td>
+		                            <td class="total">1,200.00</td>
+		                        </tr>
+		                        <tr>
+		                            <td class="no">03</td>
+		                            <td class="text-left"><h3>JB Glass</h3>Product Discription</td>
+		                            <td class="unit">40.00</td>
+		                            <td class="qty">80</td>
+		                            <td class="total">3,200.00</td>
+		                        </tr>
+		                        <tr>
+		                            <td class="no">04</td>
+		                            <td class="text-left"><h3>JB Glass</h3>Product Discription</td>
+		                            <td class="unit">40.00</td>
+		                            <td class="qty">20</td>
+		                            <td class="total">800.00</td>
+		                        </tr>
+		                    </tbody>
+		                    <tfoot>
+		                        <tr>
+		                            <td colspan="2"></td>
+		                            <td colspan="2">SUBTOTAL</td>
+		                            <td>5,200.00</td>
+		                        </tr>
+		                        <tr>
+		                            <td colspan="2"></td>
+		                            <td colspan="2">TAX 25%</td>
+		                            <td>1,300.00</td>
+		                        </tr>
+		                        <tr>
+		                            <td colspan="2"></td>
+		                            <td colspan="2">GRAND TOTAL</td>
+		                            <td>6,500.00</td>
+		                        </tr>
+		                    </tfoot>
+		                </table>
+		                <div class="thanks">Thank you!</div>
+		                <div class="notices">
+		                    <div>NOTICE:</div>
+		                    <div class="notice">This Quotation is valid for 30 days.</div>
+		                </div>
+		            </main>
+		            <footer>
+		                Quotation was created on a computer and is valid without the signature and seal.
+		            </footer>
+		        </div>
+		        <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
+		        <div></div>
+		    </div>
+		</div>
+	</body>
+</html>
