@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title></title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+    <!-- custom CSS -->
+    <!-- <link rel="stylesheet" href="assets/custom.css"> -->
+    <%= wicked_pdf_stylesheet_link_tag "custom" %>
+    <!-- Style CSS -->
+    <!-- <link rel="stylesheet" href="assets/style.css"> -->
+    <%= wicked_pdf_stylesheet_link_tag "style" %>
+
+    
+  </head>
+  <body>
+<page class="page-1" size="A4">
+  <div class="img-main-block"><%= wicked_pdf_image_tag 'img-2.jpg' %></div>
+  <div class="text-block-page-1">
+    <p style="font-size: 22px"><%= @data['project_name'] %></p>
+    <p><%= @data['architect_name'] %></p>
+    <p><%= @data['date'] %></p>
+  </div>
+</page>
+
+<page class="page-2" size="A4">
+  <div class="text-block-page-2">
+    <h1>CONGRATULATIONS !</h1>
+    <p>On choosing WALTZ by JB Glass, our signature range of premium door & partition systems.</p>
+    <p>Slim Aluminum profiles, hidden structural mechanism and wide selection of clear and
+opaque materials ensure perfect integration of walls and door, guaranteeing utmost freedom of design to enhance your space aesthetics.</p>
+    <p>From Hinge to Sliding doors, and Pivot doors to Shower Enclosures, WALTZ has a perfect solution for all your interior spaces.</p>
+    <div class="btn-type"><a href="#ordersummary" >Let's view your order</a></div>
+  </div>
+</page>
+
+<page class="page-3" size="A4" id="ordersummary">
+  <div class="black-band">
+    <div class="width-25">
+       <p>WALTZ . SWING</p>
+       <%= wicked_pdf_image_tag 'WALTZ-SWING.jpg' %>
+    </div>
+    <div class="width-25">
+       <p>WALTZ . SLIDE</p>
+       <%= wicked_pdf_image_tag 'WALTZ-SLIDE.jpg' %>
+    </div>
+    <div class="width-25">
+       <p>WALTZ . GLIDE</p>
+       <%= wicked_pdf_image_tag 'WALTZ-GLIDE.jpg' %>
+    </div>
+    <div class="width-25">
+       <p>WALTZ . CLOSE</p>
+       <%= wicked_pdf_image_tag 'WALTZ-CLOSE.jpg' %>
+    </div>
+  </div>
+  <div class="text-block-page-3">
+    <p class="order-head" style="margin-bottom: 10px;">ORDER SUMMARY</p>
+    <div class="project-summary">
+    <p>Project : <%= @data['project_name']</p>
+    <p>Architect : @data['architect_name']</p>
+    <p>Order no.: @data['order_no']</p>
+    </div>
+    <div style="padding: 0 1.5cm">
+  <table class="table table-striped">
+    <thead style="color:#fff; background: #000; ">
+      <tr>
+        <th>S.No.</th>
+        <th>WALTZ System</th>
+        <th>Floor</th>
+        <th>Space/Room</th>
+        <th>Height (in mm)</th>
+        <th>Width (in mm)</th>
+        <th>Qty.</th>
+        <th>Units</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div class="number2" style="visibility: hidden">0</div></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td> 
+        <td></td>       
+      </tr>      
+      <tr>
+        <td><div class="number2">2</div></td>
+        <td style="color:#8a5e3c">SLIDE</td>
+        <td>00</td>
+        <td>BED ROOM</td>
+        <td>2300</td>
+        <td>900</td>
+        <td>2</td> 
+        <td>Sets</td>  
+      </tr>
+      <tr>
+        <td><div class="number2">3</div></td>
+        <td style="color:#8a5e3c">GLIDE</td>
+        <td>00</td>
+        <td>BED ROOM</td>
+        <td>2300</td>
+        <td>900</td>
+        <td>1</td> 
+        <td>Sets</td> 
+      </tr>
+      <tr>
+        <td><div class="number2">4</div></td>
+        <td style="color:#8a5e3c">GLIDE</td>
+        <td>00</td>
+        <td>COMMON</td>
+        <td>2300</td>
+        <td>900</td>
+        <td>3</td> 
+        <td>Sets</td>          
+      </tr>
+      <tr>
+        <td><div class="number2">5</div></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>          
+      </tr>
+      <tr>
+        <td><div class="number2">6</div></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td> 
+        <td></td>         
+      </tr>
+      <tr>
+        <td><div class="number2">7</div></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td> 
+        <td></td>         
+      </tr>   
+      <tr>
+        <td><div class="number2">8</div></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td> 
+        <td></td>         
+      </tr>   
+      <tr>
+        <td><div class="number2">9</div></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td> 
+        <td></td>         
+      </tr>    
+      <tr>
+        <td><div class="number2">10</div></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td> 
+        <td></td>         
+      </tr>                       
+    </tbody>
+  </table>
+
+    </div>
+
+    <div class="footer">
+      <p class="bottom-link">WALTZ.JBGLASS.IN</p>
+      <p class="pagination">3</p>
+    </div>
+  </div>  
+</page>
+
+<page class="page-4" size="A4" id="waltzglide">
+  <div class="black-band">
+    <div class="width-50">
+      <div class="project">
+        <p>Project : Residence XYZ</p>
+        <p>Architect : Studio ABC</p>
+        <p>Order no.: 10062020/03</p>
+      </div>
+    </div>
+    <div class="width-50">
+      <div class="logo">
+       <%= wicked_pdf_image_tag 'logo.jpg' %>
+     </div>
+    </div>
+  </div>
+  <div class="text-block-page-4">
+   <div class="border-line">
+      <div style="padding-top: 10px;">
+        <p class="order-head" style="margin-bottom: 10px">WALTZ . GLIDE</p>
+      </div>
+
+      <div class="width-60">
+        <p>Quantity : 7</p>
+        <p>Sub-system: Regular</p>
+        <p>System Type: None</p>
+        <p>Configuration: D</p>        
+      </div>
+      <div class="width-60">
+        <p style="padding-left: 20%">Frame: Black Anodized </p>
+        <p style="padding-left: 20%">Glass: Marmo Gold - White</p>
+      </div>
+     </div> 
+  </div>
+  <div class="img-block">
+    <div class="width-img">
+      <%= wicked_pdf_image_tag 'reference-img.jpg' %>
+      <p>Reference image: WALTZ.GLIDE</p>
+    </div>
+    <div class="width-img-2">
+      <%= wicked_pdf_image_tag 'reference-img-2.jpg' %>
+      <p style="margin:0">Frame Finish</p>  
+      <p style="margin:0 0 15px">Black Anodized</p>
+      <%= wicked_pdf_image_tag 'reference-img-3.jpg' %>
+      <p style="margin:0">Glass Finish</p>
+      <p style="margin:0 0 15px">Marmo Gold - White</p>            
+    </div>
+  </div> 
+  <!--<div class="view-drawings">
+    <a href="#" class="btn-view">View drawings</a><br><br>
+    <a href="#ordersummary" style="text-decoration: underline;color:#0551b1">Back to Order Summary</a>
+  </div>-->
+  <div class=" col-md-12 comments">
+    <form action="#">
+    <p style="margin-bottom: 10px;color:#232323">Remarks / Comments</p>      
+      <textarea rows="4"></textarea>
+    </form>
+  </div>
+  <div class="footer2">
+    <p class="bottom-link">WALTZ.JBGLASS.IN</p>
+    <p class="pagination">4</p>
+  </div>
+</page>
+
+<page class="page-5" size="A4" id="waltzslide">
+  <div class="black-band">
+    <div class="width-50">
+      <div class="project">
+        <p>Project : Residence XYZ</p>
+        <p>Architect : Studio ABC</p>
+        <p>Order no.: 10062020/03</p>
+      </div>
+    </div>
+    <div class="width-50">
+      <div class="logo">
+       <%= wicked_pdf_image_tag 'logo.jpg' %>
+     </div>
+    </div>
+  </div>
+  <div class="text-block-page-4">
+   <div class="border-line">
+      <div style="padding-top: 10px;">
+        <p class="order-head" style="margin-bottom: 10px">WALTZ . GLIDE</p>
+      </div>
+
+      <div class="width-60">
+        <p>Quantity : 7</p>
+        <p>Sub-system: Regular</p>
+        <p>System Type: None</p>
+        <p>Configuration: D</p>        
+      </div>
+      <div class="width-60">
+        <p style="padding-left: 20%">Frame: Black Anodized </p>
+        <p style="padding-left: 20%">Glass: Marmo Gold - White</p>
+      </div>
+     </div> 
+  </div>
+  <div class="img-block">
+    <%= wicked_pdf_image_tag 'waltz-slide-graphic.jpg' %>
+  </div>
+  <div class="view-images">
+    <p>Plan, Elevation and Section</p>
+  </div>
+    
+  <div class="footer3">
+    <p class="bottom-link">WALTZ.JBGLASS.IN</p>
+    <p class="pagination">5</p>
+  </div>
+</page>
+
+<page class="page-6" size="A4" id="waltzglide">
+  <div class="black-band">
+    <div class="width-50">
+      <div class="project">
+        <p>Project : Residence XYZ</p>
+        <p>Architect : Studio ABC</p>
+        <p>Order no.: 10062020/03</p>
+      </div>
+    </div>
+    <div class="width-50">
+      <div class="logo">
+       <%= wicked_pdf_image_tag 'logo.jpg' %>
+     </div>
+    </div>
+  </div>
+  <div class="text-block-page-4">
+   <div class="border-line">
+      <div style="padding-top: 10px;">
+        <p class="order-head" style="margin-bottom: 10px">WALTZ . SLIDE</p>
+      </div>
+
+      <div class="width-60">
+        <p>Quantity : 1</p>
+        <p>Sub-system: Flush</p>
+        <p>System Type: Pocket door</p>
+        <p>Configuration: DD</p>        
+      </div>
+      <div class="width-60">
+        <p style="padding-left: 20%">Frame: Black Anodized </p>
+        <p style="padding-left: 20%">Inner Glass: Marmo Gold - White</p>
+        <p style="padding-left: 20%">Outer Glass: Marmo Gold - White</p>
+      </div>
+     </div> 
+  </div>
+  <div class="img-block">
+    <div class="width-img" style="margin:0">
+      <%= wicked_pdf_image_tag 'reference-img-4.jpg', height: "515" %>
+      <p>Reference image: WALTZ.SLIDE</p>
+    </div>
+    <div class="width-img-2">
+      <%= wicked_pdf_image_tag 'reference-img-2.jpg' %>
+      <p style="margin:0">Frame Finish</p>  
+      <p style="margin:0 0 15px">Black Anodized</p>
+      <%= wicked_pdf_image_tag 'reference-img-3.jpg' %>
+      <p style="margin:0">Inner Glass Finish</p>
+      <p style="margin:0 0 15px">Marmo Gold - White</p>  
+      <%= wicked_pdf_image_tag 'reference-img-3.jpg' %>
+      <p style="margin:0">Outer Glass Finish</p>
+      <p style="margin:0 0 15px">Marmo Gold - White</p>          
+    </div>
+  </div> 
+ <!-- <div class="view-drawings">
+    <a href="#" class="btn-view">View drawings</a><br><br>
+    <a href="#ordersummary" style="text-decoration: underline;color:#0551b1">Back to Order Summary</a>
+  </div>-->
+<div class=" col-md-12 comments2">
+    <form action="#">
+    <p style="margin-bottom: 10px;color:#232323">Remarks / Comments</p>      
+      <textarea rows="4"></textarea>
+    </form>
+  </div>  
+  <div class="footer4">
+    <p class="bottom-link">WALTZ.JBGLASS.IN</p>
+    <p class="pagination">6</p>
+  </div>
+</page>
+
+<page class="page-7" size="A4" id="waltzglide">
+  <div class="black-band">
+    <div class="width-50">
+      <div class="project">
+        <p>Project : Residence XYZ</p>
+        <p>Architect : Studio ABC</p>
+        <p>Order no.: 10062020/03</p>
+      </div>
+    </div>
+    <div class="width-50">
+      <div class="logo">
+       <%= wicked_pdf_image_tag 'logo.jpg' %>
+     </div>
+    </div>
+  </div>
+  <div class="text-block-page-4">
+   <div class="border-line">
+      <div style="padding-top: 10px;">
+        <p class="order-head" style="margin-bottom: 10px">WALTZ . SLIDE</p>
+      </div>
+
+      <div class="width-60">
+        <p>Quantity : 1</p>
+        <p>Sub-system: Flush</p>
+        <p>System Type: Pocket door</p>
+        <p>Configuration: DD</p>        
+      </div>
+      <div class="width-60">
+        <p style="padding-left: 20%">Frame: Black Anodized </p>
+        <p style="padding-left: 20%">Inner Glass: Marmo Gold - White</p>
+        <p style="padding-left: 20%">Outer Glass: Marmo Gold - White</p>
+      </div>
+     </div> 
+  </div>
+  <div class="img-block">
+    <%= wicked_pdf_image_tag 'waltz-slide-graphic-2.jpg' %>
+  </div>
+  <div class="view-images">
+    <p>Plan, Elevation and Section</p>
+  </div>
+    
+  <div class="footer3-1">
+    <p class="bottom-link">WALTZ.JBGLASS.IN</p>
+    <p class="pagination">7</p>
+  </div>
+</page>
+
+<page class="page-8" size="A4" id="waltzslide">
+  <div class="black-band">
+    <div class="width-25">
+       <p>WALTZ . SWING</p>
+       <%= wicked_pdf_image_tag 'WALTZ-SWING.jpg' %>
+    </div>
+    <div class="width-25">
+       <p>WALTZ . SLIDE</p>
+       <%= wicked_pdf_image_tag 'WALTZ-SLIDE.jpg' %>
+    </div>
+    <div class="width-25">
+       <p>WALTZ . GLIDE</p>
+       <%= wicked_pdf_image_tag 'WALTZ-GLIDE.jpg' %>
+    </div>
+    <div class="width-25">
+       <p>WALTZ . CLOSE</p>
+       <%= wicked_pdf_image_tag 'WALTZ-CLOSE.jpg' %>
+    </div>
+  </div>
+  <div class="text-block-page-3">
+    <p class="order-head" style="margin-bottom: 10px;">ESTIMATE</p>
+    <div class="project-summary-3">
+    <p>Project : Residence XYZ</p>
+    <p>Architect : Studio ABC</p>
+    <p>Order no.: 10062020/03</p>
+    </div>    
+    <div class="project-detail">
+      <table class="full-summary">
+        <tr>
+          <td><div class="number">1</div></td>
+          <td><%= wicked_pdf_image_tag 'reference-img.jpg', width: "100", height: "100" %></td>
+          <td>            
+            <p style="margin:0px;color:#8a5e3c">WALTZ . GLIDE</p>
+            <p style="margin:0px">Regular</p>
+            <p style="margin:0px">D</p>
+          </td>
+          <td style="text-align: left">
+            <p style="margin:0px">Floor 00 Living Room</p>
+            <p style="margin:0px">2300 x 900</p>
+            <p style="margin:0px">2 @ 304,800</p>
+            <p style="margin:0px">Frame: Black Anodized</p>
+            <p style="margin:0px">Glass: Marmo Gold - White</p>
+          </td>
+          <td>₹ 609,600 </td>
+        </tr> 
+        <tr>
+          <td><div class="number">2</div></td>
+          <td><%= wicked_pdf_image_tag 'reference-img-4.jpg', width: "100", height: "100" %></td>
+          <td>            
+            <p style="margin:0px;color:#8a5e3c">WALTZ . SLIDE</p>
+            <p style="margin:0px">Flush</p>
+            <p style="margin:0px">Pocket Door</p>
+            <p style="margin:0px">DD</p>
+          </td>
+          <td style="text-align: left">
+            <p style="margin:0px">Floor 01 Bed Room</p>
+            <p style="margin:0px">2300 x 900</p>
+            <p style="margin:0px">1 @ 275,000</p>
+            <p style="margin:0px">Frame: Black Anodized</p>
+            <p style="margin:0px">Inner Glass: Marmo Gold - White</p>
+            <p style="margin:0px">Outer Glass: Marmo Gold - White</p>
+          </td>
+          <td>₹ 275,000 </td>
+        </tr>  
+        <tr>
+          <td><div class="number">3</div></td>
+          <td><%= wicked_pdf_image_tag 'reference-img.jpg', width: "100", height: "100" %></td>
+          <td>            
+            <p style="margin:0px;color:#8a5e3c">WALTZ . GLIDE</p>
+            <p style="margin:0px">Regular</p>
+            <p style="margin:0px">D</p>
+          </td>
+          <td style="text-align: left">
+            <p style="margin:0px">Floor 02 Bed Room</p>
+            <p style="margin:0px">2300 x 900</p>
+            <p style="margin:0px">2 @ 304,800</p>
+            <p style="margin:0px">Frame: Black Anodized</p>
+            <p style="margin:0px">Glass: Marmo Gold - White</p>
+          </td>
+          <td>₹ 609,600 </td>
+        </tr> 
+        <tr>
+          <td><div class="number">4</div></td>
+          <td><%= wicked_pdf_image_tag 'reference-img.jpg', width: "100", height: "100" %></td>
+          <td>            
+            <p style="margin:0px;color:#8a5e3c">WALTZ . GLIDE</p>
+            <p style="margin:0px">Regular</p>
+            <p style="margin:0px">D</p>
+          </td>
+          <td style="text-align: left">
+            <p style="margin:0px">Floor 03 Common</p>
+            <p style="margin:0px">2300 x 900</p>
+            <p style="margin:0px">3 @ 304,800</p>
+            <p style="margin:0px">Frame: Black Anodized</p>
+            <p style="margin:0px">Glass: Marmo Gold - White</p>
+          </td>
+          <td>₹ 914,400 </td>
+        </tr>    
+        <tr>
+          <td style="border:none;"></td>
+          <td style="border:none;"></td>
+          <td style="border:none;"></td>
+          <td style="border:none;text-align: left">
+            <p style="margin:15px 0 0;font-family: 'Helvetica Neue Medium' !important;font-size: 16px">GRAND TOTAL</p>
+          </td>
+          <td style="border:none;">
+            <p style="margin:15px 0 0;font-family: 'Helvetica Neue Medium' !important;font-size: 16px">₹ 24,08,600</p>
+          </td>
+        </tr>                 
+      </table>
+      <div style="margin:20px;float: right;width:56%">
+        <p style="background: #000; color: #fff; padding:5px 10px;">* ALL INCLUSIVE PRICE. NO HIDDEN CHARGES.</p>
+      </div>
+      <div style="display: flex;width: 100%">
+        <p style="color:#232323">** T&C apply</p>
+      </div>      
+    </div>
+  </div>
+  <div class="footer8">
+    <p class="bottom-link">WALTZ.JBGLASS.IN</p>
+    <p class="pagination">8</p>
+  </div> 
+</page>
+
+<page class="page-9" size="A4">
+  <div class="black-band">
+    <div class="width-25">
+       <p>WALTZ . SWING</p>
+       <%= wicked_pdf_image_tag 'WALTZ-SWING.jpg' %>
+    </div>
+    <div class="width-25">
+       <p>WALTZ . SLIDE</p>
+       <%= wicked_pdf_image_tag 'WALTZ-SLIDE.jpg' %>
+    </div>
+    <div class="width-25">
+       <p>WALTZ . GLIDE</p>
+       <%= wicked_pdf_image_tag 'WALTZ-GLIDE.jpg' %>
+    </div>
+    <div class="width-25">
+       <p>WALTZ . CLOSE</p>
+       <%= wicked_pdf_image_tag 'WALTZ-CLOSE.jpg' %>
+    </div>
+  </div>
+  <div class="text-block-page-9">
+    <h1>ANNEXURE</h1>
+    <p style="color:#232323;text-decoration: underline;">TERMS AND CONDITIONS</p>
+    <ul style="margin-left: -23px;" class="text-list">
+      <li>All quantities are tentative only</li>
+      <li>Shop Drawing(s) need to be approved before production.</li>
+      <li>Approved shop drawings will be generated after order placement.</li>
+      <li>Lead time is 6-8 Weeks</li>
+      <li>Our scope does not include Civil Work / Scaffolding / MS work</li>
+      <li>Waltz is a customized system. Therefore, an order once placed, cannot be modified or cancelled. </li>
+    </ul>
+    <p style="color:#232323;text-decoration: underline;">PAYMENT TERMS</p>
+    <ul style="margin-left: -23px;" class="text-list">
+      <li>70% of Order amount as advance</li>
+      <li>Balance before dispatch</li>
+    </ul>    
+    <p style="color:#232323;text-decoration: underline;">ESTIMATE REVISIONS</p>
+    <ul style="margin-left: -23px;" class="text-list">
+      <li><a href="#" style="text-decoration: underline;color:#0551b1">Estimate revision JB/WALTZ/01052020-R02</a></li>
+      <li><a href="#" style="text-decoration: underline;color:#0551b1">Estimate revision JB/WALTZ/01052020-R01</a></li>
+    </ul>
+    <p style="color:#232323;text-decoration: underline;">FAQs</p>
+    <p style="font-size: 14px;line-height: 20px !important; font-family: 'Helvetica Neue Light' !important">You will find answers to most of your queries in the Frequenty Asked Questions (FAQs) section on our website @ <a href="#" style="text-decoration: underline;color:#0551b1">waltz.jbglass.in/faqs</a>. For any other queries, you may call our customer support helpline at <strong>+91 1234 5678</strong> or email us at <a href="#" style="text-decoration: underline;color:#0551b1">support@jbglass.in</a></p>
+  </div>
+  <div class="footer9">
+    <p class="bottom-link">WALTZ.JBGLASS.IN</p>
+    <p class="pagination">9</p>
+  </div> 
+</page>
+
+<page class="page-11" size="A4">
+  <div class="img-main-block"><%= wicked_pdf_image_tag 'img-2.jpg' %></div>
+  <div class="text-block-page-10">
+    <p style="font-family: 'Helvetica Neue Light' !important">ASSOCIATE NAME</p>
+    <p>ASSOCIATE ADDRESS</p>
+    <p>ASSOCIATE PHONE | EMAIL ID</a></p>
+  </div>
+  <div class="text-block-page-11">
+    <p><a style="text-decoration: underline;color:#c1c1c1" href="http://www.waltz.jbglass.in/">waltz.jbglass.in</a></p>
+    <p>Instagram: @jbglass_</p>
+    <p>facebook: <a style="text-decoration: underline;color:#c1c1c1" href="#">@jbglass.in</a></p>
+  </div>  
+</page>
+
+    <!-- <script src="assets/bootstrap.js"></script>
+    <script type="text/javascript">
+      window.print();
+    </script>
+  </body> -->
+</html>
