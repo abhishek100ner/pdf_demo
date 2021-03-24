@@ -31,12 +31,12 @@ class HomeController < ApplicationController
       "order_no" => "10062020/03",
       "product_categories" => [{
         "product_category_name" => "WALTZ . GLIDE",
-        "Quantity" => 7,
+        "quantity" => 7,
         "sub_system" => "Regular",
         "system_type"=> "None",
         "Configuration" => "D",
-        "img_url" => "URL of Product Category Image",
-        "diagram_image_url" => "URL of Product Category Diagram Image",
+        "img_url" => "reference-img.jpg",
+        "diagram_image_url" => "waltz-slide-graphic.jpg",
         "products" => [{
           "system_type" => "Waltz",
           "system_name"=> "GLIDE",
@@ -76,12 +76,15 @@ class HomeController < ApplicationController
           "Configuration" => "D"
         }],
         "sub_categories" => [{
-          "Frame" => "Black Anodized",
-          "img_url" => "URL of Product Category Image"
+          "sub_categories_finish_type" => "Frame",
+          "sub_categories_finish_name" => "Black Anodized",
+          "img_url" => "reference-img-2.jpg"
+
         },
         {
-          "Glass" => "Marmo Gold - White",
-          "img_url" => "URL of Product Category Image"
+          "sub_categories_finish_type" => "Glass",
+          "sub_categories_finish_name" => "Marmo Gold - White",
+          "img_url" => "reference-img-3.jpg"
         }]
       },
       {
@@ -90,8 +93,8 @@ class HomeController < ApplicationController
         "sub_system" => "Flush",
         "system_type"=> "Pocket door",
         "Configuration" => "DD",
-        "img_url" => "URL of Product Category Image",
-        "diagram_image_url" => "URL of Product Category Diagram Image",
+        "img_url" => "reference-img-4.jpg",
+        "diagram_image_url" => "waltz-slide-graphic-2.jpg",
         "products" => [{
           "waltz_System"=> "SLIDE",
           "floor" => "00",
@@ -105,16 +108,19 @@ class HomeController < ApplicationController
           "Configuration" => "DD"
         }],
         "sub_categories" => [{
-          "Frame" => "Black Anodized",
-          "img_url" => "URL of Product Category Image"
+          "sub_categories_finish_type" => "Frame",
+          "sub_categories_finish_name" => "Black Anodized",
+          "img_url" => "reference-img-2.jpg"
         },
         {
-          "Inner Glass" => "Marmo Gold - White",
-          "img_url" => "URL of Product Category Image"
+          "sub_categories_finish_type" => "Inner Glass",
+          "sub_categories_finish_name" => "Marmo Gold - White",
+          "img_url" => "reference-img-3.jpg"
         },
         {
-          "Outer Glass" => "Marmo Gold - White",
-          "img_url" => "URL of Product Category Image"
+          "sub_categories_finish_type" => "Outer Glass",
+          "sub_categories_finish_name" => "Marmo Gold - White",
+          "img_url" => "reference-img-3.jpg"
         }]
       }],
       "ANNEXURE" => [{

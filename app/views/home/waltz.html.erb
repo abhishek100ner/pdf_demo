@@ -57,9 +57,9 @@ opaque materials ensure perfect integration of walls and door, guaranteeing utmo
   <div class="text-block-page-3">
     <p class="order-head" style="margin-bottom: 10px;">ORDER SUMMARY</p>
     <div class="project-summary">
-    <p>Project : <%= @data['project_name']</p>
-    <p>Architect : @data['architect_name']</p>
-    <p>Order no.: @data['order_no']</p>
+    <p>Project : <%= @data['project_name']%></p>
+    <p>Architect :<%= @data['architect_name']%></p>
+    <p>Order no.:<%= @data['order_no']%></p>
     </div>
     <div style="padding: 0 1.5cm">
   <table class="table table-striped">
@@ -85,97 +85,34 @@ opaque materials ensure perfect integration of walls and door, guaranteeing utmo
         <td></td>
         <td></td> 
         <td></td>       
-      </tr>      
-      <tr>
-        <td><div class="number2">2</div></td>
-        <td style="color:#8a5e3c">SLIDE</td>
-        <td>00</td>
-        <td>BED ROOM</td>
-        <td>2300</td>
-        <td>900</td>
-        <td>2</td> 
-        <td>Sets</td>  
       </tr>
-      <tr>
-        <td><div class="number2">3</div></td>
-        <td style="color:#8a5e3c">GLIDE</td>
-        <td>00</td>
-        <td>BED ROOM</td>
-        <td>2300</td>
-        <td>900</td>
-        <td>1</td> 
-        <td>Sets</td> 
-      </tr>
-      <tr>
-        <td><div class="number2">4</div></td>
-        <td style="color:#8a5e3c">GLIDE</td>
-        <td>00</td>
-        <td>COMMON</td>
-        <td>2300</td>
-        <td>900</td>
-        <td>3</td> 
-        <td>Sets</td>          
-      </tr>
-      <tr>
-        <td><div class="number2">5</div></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>          
-      </tr>
-      <tr>
-        <td><div class="number2">6</div></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td> 
-        <td></td>         
-      </tr>
-      <tr>
-        <td><div class="number2">7</div></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td> 
-        <td></td>         
-      </tr>   
-      <tr>
-        <td><div class="number2">8</div></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td> 
-        <td></td>         
-      </tr>   
-      <tr>
-        <td><div class="number2">9</div></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td> 
-        <td></td>         
-      </tr>    
-      <tr>
-        <td><div class="number2">10</div></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td> 
-        <td></td>         
-      </tr>                       
+      <% product_count = 1%>
+      <% @data['product_categories'].each do |product_category|%>
+        <% product_category['products'].each do |product|%>
+          <tr>
+            <td><div class="number2"><%= product_count %><% product_count += 1 %></div></td>
+            <td style="color:#8a5e3c"><%= product['system_type'] %></td>
+            <td><%= product['floor'] %></td>
+            <td><%= product['space_room'] %></td>
+            <td><%= product['height'] %></td>
+            <td><%= product['width'] %></td> 
+            <td><%= product['qty'] %></td>         
+            <td><%= product['units'] %></td>         
+          </tr>
+        <% end %>
+      <% end %>
+      <% while product_count <= 10 %>
+        <tr>
+          <td><div class="number2"><%= product_count %><% product_count += 1 %></div></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>          
+        </tr>
+      <% end %>
     </tbody>
   </table>
 
@@ -188,228 +125,119 @@ opaque materials ensure perfect integration of walls and door, guaranteeing utmo
   </div>  
 </page>
 
-<page class="page-4" size="A4" id="waltzglide">
-  <div class="black-band">
-    <div class="width-50">
-      <div class="project">
-        <p>Project : Residence XYZ</p>
-        <p>Architect : Studio ABC</p>
-        <p>Order no.: 10062020/03</p>
+<% @data['product_categories'].each do |product_category|%>
+  <page class="page-4" size="A4" id="waltzglide">
+    <div class="black-band">
+      <div class="width-50">
+        <div class="project">
+          <p>Project : <%= @data['project_name']%></p>
+          <p>Architect :<%= @data['architect_name']%></p>
+          <p>Order no.:<%= @data['order_no']%></p>
+        </div>
+      </div>
+      <div class="width-50">
+        <div class="logo">
+         <%= wicked_pdf_image_tag 'logo.jpg' %>
+       </div>
       </div>
     </div>
-    <div class="width-50">
-      <div class="logo">
-       <%= wicked_pdf_image_tag 'logo.jpg' %>
-     </div>
-    </div>
-  </div>
-  <div class="text-block-page-4">
-   <div class="border-line">
-      <div style="padding-top: 10px;">
-        <p class="order-head" style="margin-bottom: 10px">WALTZ . GLIDE</p>
-      </div>
+    <div class="text-block-page-4">
+     <div class="border-line">
+        <div style="padding-top: 10px;">
+          <p class="order-head" style="margin-bottom: 10px"><%= product_category['product_category_name']%></p>
+        </div>
 
-      <div class="width-60">
-        <p>Quantity : 7</p>
-        <p>Sub-system: Regular</p>
-        <p>System Type: None</p>
-        <p>Configuration: D</p>        
-      </div>
-      <div class="width-60">
-        <p style="padding-left: 20%">Frame: Black Anodized </p>
-        <p style="padding-left: 20%">Glass: Marmo Gold - White</p>
-      </div>
-     </div> 
-  </div>
-  <div class="img-block">
-    <div class="width-img">
-      <%= wicked_pdf_image_tag 'reference-img.jpg' %>
-      <p>Reference image: WALTZ.GLIDE</p>
+        <div class="width-60">
+          <p>Quantity : <%= product_category['quantity'] %></p>
+          <p>Sub-system: <%= product_category['sub_system'] %></p>
+          <p>System Type: <%= product_category['system_type'] %></p>
+          <p>Configuration: <%= product_category['Configuration'] %></p>        
+        </div>
+        <div class="width-60">
+          <% product_category['sub_categories'].each do |sub_category|%>
+            <p style="padding-left: 20%"><%= sub_category['sub_categories_finish_type'] %>: <%= sub_category['sub_categories_finish_name'] %></p>
+          <% end %>
+        </div>
+       </div> 
     </div>
-    <div class="width-img-2">
-      <%= wicked_pdf_image_tag 'reference-img-2.jpg' %>
-      <p style="margin:0">Frame Finish</p>  
-      <p style="margin:0 0 15px">Black Anodized</p>
-      <%= wicked_pdf_image_tag 'reference-img-3.jpg' %>
-      <p style="margin:0">Glass Finish</p>
-      <p style="margin:0 0 15px">Marmo Gold - White</p>            
+    <div class="img-block">
+      <div class="width-img">
+        <%= wicked_pdf_image_tag product_category['img_url'], height: "100" %>
+        <p>Reference image: WALTZ.GLIDE</p>
+      </div>
+      <div class="width-img-2">
+        <% product_category['sub_categories'].each do |sub_category|%>
+          <%= wicked_pdf_image_tag sub_category['img_url'] %>
+          <p style="margin:0"><%= sub_category['sub_categories_finish_type'] %> Finish </p>  
+          <p style="margin:0 0 15px"><%= sub_category['sub_categories_finish_name'] %></p>
+        <% end %>
+      </div>
+    </div> 
+    <!--<div class="view-drawings">
+      <a href="#" class="btn-view">View drawings</a><br><br>
+      <a href="#ordersummary" style="text-decoration: underline;color:#0551b1">Back to Order Summary</a>
+    </div>-->
+    <div class=" col-md-12 comments">
+      <form action="#">
+      <p style="margin-bottom: 10px;color:#232323">Remarks / Comments</p>      
+        <textarea rows="4"></textarea>
+      </form>
     </div>
-  </div> 
-  <!--<div class="view-drawings">
-    <a href="#" class="btn-view">View drawings</a><br><br>
-    <a href="#ordersummary" style="text-decoration: underline;color:#0551b1">Back to Order Summary</a>
-  </div>-->
-  <div class=" col-md-12 comments">
-    <form action="#">
-    <p style="margin-bottom: 10px;color:#232323">Remarks / Comments</p>      
-      <textarea rows="4"></textarea>
-    </form>
-  </div>
-  <div class="footer2">
-    <p class="bottom-link">WALTZ.JBGLASS.IN</p>
-    <p class="pagination">4</p>
-  </div>
-</page>
+    <div class="footer2">
+      <p class="bottom-link">WALTZ.JBGLASS.IN</p>
+      <p class="pagination">4</p>
+    </div>
+  </page>
 
-<page class="page-5" size="A4" id="waltzslide">
-  <div class="black-band">
-    <div class="width-50">
-      <div class="project">
-        <p>Project : Residence XYZ</p>
-        <p>Architect : Studio ABC</p>
-        <p>Order no.: 10062020/03</p>
+  <page class="page-5" size="A4" id="waltzslide">
+    <div class="black-band">
+      <div class="width-50">
+        <div class="project">
+          <p>Project : <%= @data['project_name']%></p>
+          <p>Architect :<%= @data['architect_name']%></p>
+          <p>Order no.:<%= @data['order_no']%></p>
+        </div>
+      </div>
+      <div class="width-50">
+        <div class="logo">
+         <%= wicked_pdf_image_tag 'logo.jpg' %>
+       </div>
       </div>
     </div>
-    <div class="width-50">
-      <div class="logo">
-       <%= wicked_pdf_image_tag 'logo.jpg' %>
-     </div>
-    </div>
-  </div>
-  <div class="text-block-page-4">
-   <div class="border-line">
-      <div style="padding-top: 10px;">
-        <p class="order-head" style="margin-bottom: 10px">WALTZ . GLIDE</p>
-      </div>
+    <div class="text-block-page-4">
+     <div class="border-line">
+        <div style="padding-top: 10px;">
+          <p class="order-head" style="margin-bottom: 10px"><%= product_category['product_category_name']%></p>
+        </div>
 
-      <div class="width-60">
-        <p>Quantity : 7</p>
-        <p>Sub-system: Regular</p>
-        <p>System Type: None</p>
-        <p>Configuration: D</p>        
-      </div>
-      <div class="width-60">
-        <p style="padding-left: 20%">Frame: Black Anodized </p>
-        <p style="padding-left: 20%">Glass: Marmo Gold - White</p>
-      </div>
-     </div> 
-  </div>
-  <div class="img-block">
-    <%= wicked_pdf_image_tag 'waltz-slide-graphic.jpg' %>
-  </div>
-  <div class="view-images">
-    <p>Plan, Elevation and Section</p>
-  </div>
-    
-  <div class="footer3">
-    <p class="bottom-link">WALTZ.JBGLASS.IN</p>
-    <p class="pagination">5</p>
-  </div>
-</page>
+        <div class="width-60">
+          <p>Quantity : <%= product_category['quantity'] %></p>
+          <p>Sub-system: <%= product_category['sub_system'] %></p>
+          <p>System Type: <%= product_category['system_type'] %></p>
+          <p>Configuration: <%= product_category['Configuration'] %></p>
+        </div>
+        <div class="width-60">
+          <% product_category['sub_categories'].each do |sub_category|%>
+            <p style="padding-left: 20%"><%= sub_category['sub_categories_finish_type'] %>: <%= sub_category['sub_categories_finish_name'] %></p>
+          <% end %>
+        </div>
+       </div> 
+    </div>
+    <div class="img-block">
+      <%= wicked_pdf_image_tag product_category['diagram_image_url'] %>
+    </div>
+    <div class="view-images">
+      <p>Plan, Elevation and Section</p>
+    </div>
+      
+    <div class="footer3">
+      <p class="bottom-link">WALTZ.JBGLASS.IN</p>
+      <p class="pagination">5</p>
+    </div>
+  </page>
 
-<page class="page-6" size="A4" id="waltzglide">
-  <div class="black-band">
-    <div class="width-50">
-      <div class="project">
-        <p>Project : Residence XYZ</p>
-        <p>Architect : Studio ABC</p>
-        <p>Order no.: 10062020/03</p>
-      </div>
-    </div>
-    <div class="width-50">
-      <div class="logo">
-       <%= wicked_pdf_image_tag 'logo.jpg' %>
-     </div>
-    </div>
-  </div>
-  <div class="text-block-page-4">
-   <div class="border-line">
-      <div style="padding-top: 10px;">
-        <p class="order-head" style="margin-bottom: 10px">WALTZ . SLIDE</p>
-      </div>
-
-      <div class="width-60">
-        <p>Quantity : 1</p>
-        <p>Sub-system: Flush</p>
-        <p>System Type: Pocket door</p>
-        <p>Configuration: DD</p>        
-      </div>
-      <div class="width-60">
-        <p style="padding-left: 20%">Frame: Black Anodized </p>
-        <p style="padding-left: 20%">Inner Glass: Marmo Gold - White</p>
-        <p style="padding-left: 20%">Outer Glass: Marmo Gold - White</p>
-      </div>
-     </div> 
-  </div>
-  <div class="img-block">
-    <div class="width-img" style="margin:0">
-      <%= wicked_pdf_image_tag 'reference-img-4.jpg', height: "515" %>
-      <p>Reference image: WALTZ.SLIDE</p>
-    </div>
-    <div class="width-img-2">
-      <%= wicked_pdf_image_tag 'reference-img-2.jpg' %>
-      <p style="margin:0">Frame Finish</p>  
-      <p style="margin:0 0 15px">Black Anodized</p>
-      <%= wicked_pdf_image_tag 'reference-img-3.jpg' %>
-      <p style="margin:0">Inner Glass Finish</p>
-      <p style="margin:0 0 15px">Marmo Gold - White</p>  
-      <%= wicked_pdf_image_tag 'reference-img-3.jpg' %>
-      <p style="margin:0">Outer Glass Finish</p>
-      <p style="margin:0 0 15px">Marmo Gold - White</p>          
-    </div>
-  </div> 
- <!-- <div class="view-drawings">
-    <a href="#" class="btn-view">View drawings</a><br><br>
-    <a href="#ordersummary" style="text-decoration: underline;color:#0551b1">Back to Order Summary</a>
-  </div>-->
-<div class=" col-md-12 comments2">
-    <form action="#">
-    <p style="margin-bottom: 10px;color:#232323">Remarks / Comments</p>      
-      <textarea rows="4"></textarea>
-    </form>
-  </div>  
-  <div class="footer4">
-    <p class="bottom-link">WALTZ.JBGLASS.IN</p>
-    <p class="pagination">6</p>
-  </div>
-</page>
-
-<page class="page-7" size="A4" id="waltzglide">
-  <div class="black-band">
-    <div class="width-50">
-      <div class="project">
-        <p>Project : Residence XYZ</p>
-        <p>Architect : Studio ABC</p>
-        <p>Order no.: 10062020/03</p>
-      </div>
-    </div>
-    <div class="width-50">
-      <div class="logo">
-       <%= wicked_pdf_image_tag 'logo.jpg' %>
-     </div>
-    </div>
-  </div>
-  <div class="text-block-page-4">
-   <div class="border-line">
-      <div style="padding-top: 10px;">
-        <p class="order-head" style="margin-bottom: 10px">WALTZ . SLIDE</p>
-      </div>
-
-      <div class="width-60">
-        <p>Quantity : 1</p>
-        <p>Sub-system: Flush</p>
-        <p>System Type: Pocket door</p>
-        <p>Configuration: DD</p>        
-      </div>
-      <div class="width-60">
-        <p style="padding-left: 20%">Frame: Black Anodized </p>
-        <p style="padding-left: 20%">Inner Glass: Marmo Gold - White</p>
-        <p style="padding-left: 20%">Outer Glass: Marmo Gold - White</p>
-      </div>
-     </div> 
-  </div>
-  <div class="img-block">
-    <%= wicked_pdf_image_tag 'waltz-slide-graphic-2.jpg' %>
-  </div>
-  <div class="view-images">
-    <p>Plan, Elevation and Section</p>
-  </div>
-    
-  <div class="footer3-1">
-    <p class="bottom-link">WALTZ.JBGLASS.IN</p>
-    <p class="pagination">7</p>
-  </div>
-</page>
+  
+<% end %>
 
 <page class="page-8" size="A4" id="waltzslide">
   <div class="black-band">
