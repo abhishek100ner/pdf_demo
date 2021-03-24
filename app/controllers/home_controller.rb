@@ -48,7 +48,8 @@ class HomeController < ApplicationController
           "units" => "Sets",
           "sub_system" => "Regular",
           "system_type"=> "None",
-          "Configuration" => "D"
+          "Configuration" => "D",
+          "price" => 304800
         },
         
         {
@@ -61,7 +62,8 @@ class HomeController < ApplicationController
           "units" => "Sets",
           "sub_system" => "Regular",
           "system_type"=> "None",
-          "Configuration" => "D"
+          "Configuration" => "D",
+          "price" => 304800
         },
         {
           "waltz_System"=> "GLIDE",
@@ -73,7 +75,8 @@ class HomeController < ApplicationController
           "units" => "Sets",
           "sub_system" => "Regular",
           "system_type"=> "None",
-          "Configuration" => "D"
+          "Configuration" => "D",
+          "price" => 304800
         }],
         "sub_categories" => [{
           "sub_categories_finish_type" => "Frame",
@@ -105,22 +108,13 @@ class HomeController < ApplicationController
           "units" => "Sets",
           "sub_system" => "Flush",
           "system_type"=> "Pocket door",
-          "Configuration" => "DD"
+          "Configuration" => "DD",
+          "price" => 275000
         }],
         "sub_categories" => [{
           "sub_categories_finish_type" => "Frame",
           "sub_categories_finish_name" => "Black Anodized",
           "img_url" => "reference-img-2.jpg"
-        },
-        {
-          "sub_categories_finish_type" => "Inner Glass",
-          "sub_categories_finish_name" => "Marmo Gold - White",
-          "img_url" => "reference-img-3.jpg"
-        },
-        {
-          "sub_categories_finish_type" => "Outer Glass",
-          "sub_categories_finish_name" => "Marmo Gold - White",
-          "img_url" => "reference-img-3.jpg"
         }]
       }],
       "ANNEXURE" => [{
