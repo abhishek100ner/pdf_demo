@@ -162,12 +162,12 @@ opaque materials ensure perfect integration of walls and door, guaranteeing utmo
     </div>
     <div class="img-block">
       <div class="width-img">
-        <%= wicked_pdf_image_tag product_category['img_url'], height: "100" %>
+        <%= wicked_pdf_image_tag product_category['img_url'] %>
         <p>Reference image: WALTZ.GLIDE</p>
       </div>
       <div class="width-img-2">
         <% product_category['sub_categories'].each do |sub_category|%>
-          <%= wicked_pdf_image_tag sub_category['img_url'] %>
+          <%= wicked_pdf_image_tag sub_category['img_url'], height: "100" %>
           <p style="margin:0"><%= sub_category['sub_categories_finish_type'] %> Finish </p>  
           <p style="margin:0 0 15px"><%= sub_category['sub_categories_finish_name'] %></p>
         <% end %>
@@ -261,82 +261,39 @@ opaque materials ensure perfect integration of walls and door, guaranteeing utmo
   <div class="text-block-page-3">
     <p class="order-head" style="margin-bottom: 10px;">ESTIMATE</p>
     <div class="project-summary-3">
-    <p>Project : Residence XYZ</p>
-    <p>Architect : Studio ABC</p>
-    <p>Order no.: 10062020/03</p>
+    <p>Project : <%= @data['project_name']%></p>
+    <p>Architect :<%= @data['architect_name']%></p>
+    <p>Order no.:<%= @data['order_no']%></p>
     </div>    
     <div class="project-detail">
       <table class="full-summary">
-        <tr>
-          <td><div class="number">1</div></td>
-          <td><%= wicked_pdf_image_tag 'reference-img.jpg', width: "100", height: "100" %></td>
-          <td>            
-            <p style="margin:0px;color:#8a5e3c">WALTZ . GLIDE</p>
-            <p style="margin:0px">Regular</p>
-            <p style="margin:0px">D</p>
-          </td>
-          <td style="text-align: left">
-            <p style="margin:0px">Floor 00 Living Room</p>
-            <p style="margin:0px">2300 x 900</p>
-            <p style="margin:0px">2 @ 304,800</p>
-            <p style="margin:0px">Frame: Black Anodized</p>
-            <p style="margin:0px">Glass: Marmo Gold - White</p>
-          </td>
-          <td>₹ 609,600 </td>
-        </tr> 
-        <tr>
-          <td><div class="number">2</div></td>
-          <td><%= wicked_pdf_image_tag 'reference-img-4.jpg', width: "100", height: "100" %></td>
-          <td>            
-            <p style="margin:0px;color:#8a5e3c">WALTZ . SLIDE</p>
-            <p style="margin:0px">Flush</p>
-            <p style="margin:0px">Pocket Door</p>
-            <p style="margin:0px">DD</p>
-          </td>
-          <td style="text-align: left">
-            <p style="margin:0px">Floor 01 Bed Room</p>
-            <p style="margin:0px">2300 x 900</p>
-            <p style="margin:0px">1 @ 275,000</p>
-            <p style="margin:0px">Frame: Black Anodized</p>
-            <p style="margin:0px">Inner Glass: Marmo Gold - White</p>
-            <p style="margin:0px">Outer Glass: Marmo Gold - White</p>
-          </td>
-          <td>₹ 275,000 </td>
-        </tr>  
-        <tr>
-          <td><div class="number">3</div></td>
-          <td><%= wicked_pdf_image_tag 'reference-img.jpg', width: "100", height: "100" %></td>
-          <td>            
-            <p style="margin:0px;color:#8a5e3c">WALTZ . GLIDE</p>
-            <p style="margin:0px">Regular</p>
-            <p style="margin:0px">D</p>
-          </td>
-          <td style="text-align: left">
-            <p style="margin:0px">Floor 02 Bed Room</p>
-            <p style="margin:0px">2300 x 900</p>
-            <p style="margin:0px">2 @ 304,800</p>
-            <p style="margin:0px">Frame: Black Anodized</p>
-            <p style="margin:0px">Glass: Marmo Gold - White</p>
-          </td>
-          <td>₹ 609,600 </td>
-        </tr> 
-        <tr>
-          <td><div class="number">4</div></td>
-          <td><%= wicked_pdf_image_tag 'reference-img.jpg', width: "100", height: "100" %></td>
-          <td>            
-            <p style="margin:0px;color:#8a5e3c">WALTZ . GLIDE</p>
-            <p style="margin:0px">Regular</p>
-            <p style="margin:0px">D</p>
-          </td>
-          <td style="text-align: left">
-            <p style="margin:0px">Floor 03 Common</p>
-            <p style="margin:0px">2300 x 900</p>
-            <p style="margin:0px">3 @ 304,800</p>
-            <p style="margin:0px">Frame: Black Anodized</p>
-            <p style="margin:0px">Glass: Marmo Gold - White</p>
-          </td>
-          <td>₹ 914,400 </td>
-        </tr>    
+        <% total_amount = 0 %>
+        <% product_count = 1%>
+        <% @data['product_categories'].each do |product_category|%>
+          <% product_category['products'].each do |product|%>
+            <tr>
+              <td><div class="number"><%= product_count %><% product_count += 1 %></div></td>
+              <td><%= wicked_pdf_image_tag product_category['img_url'], width: "100", height: "100" %></td>
+              <td>            
+                <p style="margin:0px;color:#8a5e3c"><%= product_category['product_category_name']%></p>
+                <p style="margin:0px"><%= product['sub_system'] %></p>
+                <p style="margin:0px"><%= product['Configuration'] %></p>
+              </td>
+              <td style="text-align: left">
+                <p style="margin:0px">Floor <%= product['floor']%> <%= product['space_room'] %></p>
+                <p style="margin:0px"><%= product['height']%> x <%= product['width']%></p>
+                <p style="margin:0px"><%= product['qty']%> @ <%= product['price']%></p>
+                <% product_category['sub_categories'].each do |sub_category|%>
+                  <p style="margin:0px"><%= sub_category['sub_categories_finish_type'] %>: <%= sub_category['sub_categories_finish_name'] %></p>
+                <% end %>
+              </td>
+              <% amount = (product['qty'].to_i * product['price'].to_i)%>
+              <% total_amount = total_amount +  amount %>
+              <td>₹ <%= total_amount %> </td>
+            </tr> 
+          <% end %>
+        <% end %>
+        
         <tr>
           <td style="border:none;"></td>
           <td style="border:none;"></td>
@@ -345,7 +302,7 @@ opaque materials ensure perfect integration of walls and door, guaranteeing utmo
             <p style="margin:15px 0 0;font-family: 'Helvetica Neue Medium' !important;font-size: 16px">GRAND TOTAL</p>
           </td>
           <td style="border:none;">
-            <p style="margin:15px 0 0;font-family: 'Helvetica Neue Medium' !important;font-size: 16px">₹ 24,08,600</p>
+            <p style="margin:15px 0 0;font-family: 'Helvetica Neue Medium' !important;font-size: 16px">₹ <%= total_amount %></p>
           </td>
         </tr>                 
       </table>
