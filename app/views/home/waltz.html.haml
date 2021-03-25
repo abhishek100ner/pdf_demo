@@ -1,0 +1,277 @@
+!!!
+%html
+  %head
+    = wicked_pdf_stylesheet_link_tag "custom"
+    = wicked_pdf_stylesheet_link_tag "style"
+    :css
+      body{background-color: #fff;}
+      page{ display:block; clear:both; page-break-before:always !important; }
+  %body
+    %page.page-1{:size => "A4"}
+      .img-main-block= wicked_pdf_image_tag @data["logo_url"]
+      .text-block-page-1
+        %p{:style => "font-size: 22px"}= @data["project_description"]['project_name']
+        %p= @data["project_description"]['architect_name']
+        %p= @data['date']
+    %page.page-2{:size => "A4"}
+      .text-block-page-2
+        %h1 CONGRATULATIONS !
+        %p On choosing WALTZ by JB Glass, our signature range of premium door & partition systems.
+        %p
+          Slim Aluminum profiles, hidden structural mechanism and wide selection of clear and
+          opaque materials ensure perfect integration of walls and door, guaranteeing utmost freedom of design to enhance your space aesthetics.
+        %p From Hinge to Sliding doors, and Pivot doors to Shower Enclosures, WALTZ has a perfect solution for all your interior spaces.
+        .btn-type
+          %a{:href => "#ordersummary"} Let's view your order
+    %page#ordersummary.page-3{:size => "A4"}
+      .black-band
+        .width-25
+          %p WALTZ . SWING
+          = wicked_pdf_image_tag 'WALTZ-SWING.jpg'
+        .width-25
+          %p WALTZ . SLIDE
+          = wicked_pdf_image_tag 'WALTZ-SLIDE.jpg'
+        .width-25
+          %p WALTZ . GLIDE
+          = wicked_pdf_image_tag 'WALTZ-GLIDE.jpg'
+        .width-25
+          %p WALTZ . CLOSE
+          = wicked_pdf_image_tag 'WALTZ-CLOSE.jpg'
+      .text-block-page-3
+        %p.order-head{:style => "margin-bottom: 10px;"} ORDER SUMMARY
+        .project-summary
+          - @data["project_description"].each do |item|
+            %p
+              = "#{item[0]} : #{item[1]}"
+        %div{:style => "padding: 0 1.5cm"}
+          %table.table.table-striped
+            - table_column = []
+            - @data['product_categories'].each do |product_category|
+              - product_category['products'].each do |product|
+                - table_column += product.keys
+            - table_column = table_column.uniq.first(7)
+            %thead{:style => "color:#fff; background: #000; "}
+              %tr
+                %th S.No.
+                - table_column.each do |column|
+                  %th= column
+            %tbody
+              - product_count = 1
+              - @data['product_categories'].each do |product_category|
+                - product_category['products'].each do |product|
+                  %tr
+                    %td
+                      .number2
+                        = product_count
+                        - product_count += 1
+                    - table_column.each do |key|
+                      %td= product[key]
+              
+        .footer
+          %p.bottom-link WALTZ.JBGLASS.IN
+          %p.pagination 3
+    - @data['product_categories'].each_with_index do |product_category, index| 
+      %page#waltzglide.page-4{:size => "A4"}
+        .black-band
+          .width-50
+            .project
+              - @data["project_description"].each do |item|
+                %p
+                  = "#{item[0]} : #{item[1]}"
+          .width-50
+            .logo
+              = wicked_pdf_image_tag product_category["logo_url"]
+        .text-block-page-4
+          .border-line
+            %div{:style => "padding-top: 10px;"}
+              %p.order-head{:style => "margin-bottom: 10px"}= product_category['product_category_name']
+            .width-60
+              - product_category["products_category_description"].each do |item|
+                %p
+                  = "#{item[0]} : #{item[1]}"
+            .width-60
+              - product_category['sub_categories'].first(3).each do |sub_category|
+                %p{:style => "padding-left: 20%"}
+                  = sub_category['sub_categories_finish_type']
+                  \: #{sub_category['sub_categories_finish_name']}  
+        .img-block
+          .width-img
+            = wicked_pdf_image_tag product_category['img_url']
+            %p Reference image: WALTZ.GLIDE
+          .width-img-2
+            - product_category['sub_categories'].first(3).each do |sub_category|
+              = wicked_pdf_image_tag sub_category['img_url'], height: "80"
+              %p{:style => "margin:0"}
+                = sub_category['sub_categories_finish_type']
+                Finish
+              %p{:style => "margin:0 0 10px"}= sub_category['sub_categories_finish_name']
+        /
+          <div class="view-drawings">
+          <a href="#" class="btn-view">View drawings</a><br><br>
+          <a href="#ordersummary" style="text-decoration: underline;color:#0551b1">Back to Order Summary</a>
+          </div>
+        .col-md-12.comments
+          %form{:action => "#"}
+            %p{:style => "margin-bottom: 10px;color:#232323"} Remarks / Comments
+            %textarea{:rows => "4"}
+        .footer2
+          %p.bottom-link WALTZ.JBGLASS.IN
+          %p.pagination= (index+1)*2+2
+      %page#waltzslide.page-5{:size => "A4"}
+        .black-band
+          .width-50
+            .project
+              - @data["project_description"].each do |item|
+                %p
+                  = "#{item[0]} : #{item[1]}"
+          .width-50
+            .logo
+              = wicked_pdf_image_tag product_category["logo_url"]
+        .text-block-page-4
+          .border-line
+            %div{:style => "padding-top: 10px;"}
+              %p.order-head{:style => "margin-bottom: 10px"}= product_category['product_category_name']
+            .width-60
+              - product_category["products_category_description"].each do |item|
+                %p
+                  = "#{item[0]} : #{item[1]}"
+            .width-60
+              - product_category['sub_categories'].first(3).each do |sub_category|
+                %p{:style => "padding-left: 20%"}
+                  = sub_category['sub_categories_finish_type']
+                  \: #{sub_category['sub_categories_finish_name']}
+        .img-block
+          = wicked_pdf_image_tag product_category['diagram_image_url']
+        .view-images
+          %p Plan, Elevation and Section
+        .footer3
+          %p.bottom-link WALTZ.JBGLASS.IN
+          %p.pagination= (index+1)*2+3
+    %page#waltzslide.page-8{:size => "A4"}
+      .black-band
+        .width-25
+          %p WALTZ . SWING
+          = wicked_pdf_image_tag 'WALTZ-SWING.jpg'
+        .width-25
+          %p WALTZ . SLIDE
+          = wicked_pdf_image_tag 'WALTZ-SLIDE.jpg'
+        .width-25
+          %p WALTZ . GLIDE
+          = wicked_pdf_image_tag 'WALTZ-GLIDE.jpg'
+        .width-25
+          %p WALTZ . CLOSE
+          = wicked_pdf_image_tag 'WALTZ-CLOSE.jpg'
+      .text-block-page-3
+        %p.order-head{:style => "margin-bottom: 10px;"} ESTIMATE
+        .project-summary-3
+          - @data["project_description"].each do |item|
+            %p
+              = "#{item[0]} : #{item[1]}"
+        .project-detail
+          %table.full-summary
+            - total_amount = 0
+            - product_count = 1
+            - @data['product_categories'].each do |product_category|
+              - product_category['products'].each do |product|
+                %tr
+                  %td
+                    .number
+                      = product_count
+                      - product_count += 1
+                  %td= wicked_pdf_image_tag product_category['img_url'], width: "100", height: "100"
+                  %td
+                    %p{:style => "margin:0px;color:#8a5e3c"}= product_category['product_category_name']
+                    %p{:style => "margin:0px"}= product['sub_system']
+                    %p{:style => "margin:0px"}= product['Configuration']
+                  %td{:style => "text-align: left"}
+                    %p{:style => "margin:0px"}
+                      Floor #{product['floor']}#{product['space_room']}
+                    %p{:style => "margin:0px"}
+                      = product['height']
+                      x #{product['width']}
+                    %p{:style => "margin:0px"}
+                      = product['qty']
+                      @ #{product['price']}
+                    - product_category['sub_categories'].each do |sub_category|
+                      %p{:style => "margin:0px"}
+                        = sub_category['sub_categories_finish_type']
+                        \: #{sub_category['sub_categories_finish_name']}
+                  - amount = (product['qty'].to_i * product['price'].to_i)
+                  - total_amount = total_amount +  amount
+                  %td
+                    ₹ #{total_amount}
+            %tr
+              %td{:style => "border:none;"}
+              %td{:style => "border:none;"}
+              %td{:style => "border:none;"}
+              %td{:style => "border:none;text-align: left"}
+                %p{:style => "margin:15px 0 0;font-family: 'Helvetica Neue Medium' !important;font-size: 16px"} GRAND TOTAL
+              %td{:style => "border:none;"}
+                %p{:style => "margin:15px 0 0;font-family: 'Helvetica Neue Medium' !important;font-size: 16px"}
+                  ₹ #{total_amount}
+          %div{:style => "margin:20px;float: right;width:56%"}
+            %p{:style => "background: #000; color: #fff; padding:5px 10px;"} * ALL INCLUSIVE PRICE. NO HIDDEN CHARGES.
+          %div{:style => "display: flex;width: 100%"}
+            %p{:style => "color:#232323"} ** T&C apply
+      .footer8
+        %p.bottom-link WALTZ.JBGLASS.IN
+        %p.pagination 8
+    %page.page-9{:size => "A4"}
+      .black-band
+        .width-25
+          %p WALTZ . SWING
+          = wicked_pdf_image_tag 'WALTZ-SWING.jpg'
+        .width-25
+          %p WALTZ . SLIDE
+          = wicked_pdf_image_tag 'WALTZ-SLIDE.jpg'
+        .width-25
+          %p WALTZ . GLIDE
+          = wicked_pdf_image_tag 'WALTZ-GLIDE.jpg'
+        .width-25
+          %p WALTZ . CLOSE
+          = wicked_pdf_image_tag 'WALTZ-CLOSE.jpg'
+      .text-block-page-9
+        %h1 ANNEXURE
+        %p{:style => "color:#232323;text-decoration: underline;"} TERMS AND CONDITIONS
+        %ul.text-list{:style => "margin-left: -23px;"}
+          %li All quantities are tentative only
+          %li Shop Drawing(s) need to be approved before production.
+          %li Approved shop drawings will be generated after order placement.
+          %li Lead time is 6-8 Weeks
+          %li Our scope does not include Civil Work / Scaffolding / MS work
+          %li Waltz is a customized system. Therefore, an order once placed, cannot be modified or cancelled.
+        %p{:style => "color:#232323;text-decoration: underline;"} PAYMENT TERMS
+        %ul.text-list{:style => "margin-left: -23px;"}
+          %li 70% of Order amount as advance
+          %li Balance before dispatch
+        %p{:style => "color:#232323;text-decoration: underline;"} ESTIMATE REVISIONS
+        %ul.text-list{:style => "margin-left: -23px;"}
+          %li
+            %a{:href => "#", :style => "text-decoration: underline;color:#0551b1"} Estimate revision JB/WALTZ/01052020-R02
+          %li
+            %a{:href => "#", :style => "text-decoration: underline;color:#0551b1"} Estimate revision JB/WALTZ/01052020-R01
+        %p{:style => "color:#232323;text-decoration: underline;"} FAQs
+        %p{:style => "font-size: 14px;line-height: 20px !important; font-family: 'Helvetica Neue Light' !important"}
+          You will find answers to most of your queries in the Frequenty Asked Questions (FAQs) section on our website @
+          = succeed "." do
+            %a{:href => "#", :style => "text-decoration: underline;color:#0551b1"} waltz.jbglass.in/faqs
+          %strong +91 1234 5678
+          or email us at
+          %a{:href => "#", :style => "text-decoration: underline;color:#0551b1"} support@jbglass.in
+      .footer9
+        %p.bottom-link WALTZ.JBGLASS.IN
+        %p.pagination 9
+    %page.page-11{:size => "A4"}
+      .img-main-block= wicked_pdf_image_tag @data["logo_url"]
+      .text-block-page-10
+        %p{:style => "font-family: 'Helvetica Neue Light' !important"} ASSOCIATE NAME
+        %p ASSOCIATE ADDRESS
+        %p ASSOCIATE PHONE | EMAIL ID
+      .text-block-page-11
+        %p
+          %a{:href => "http://www.waltz.jbglass.in/", :style => "text-decoration: underline;color:#c1c1c1"} waltz.jbglass.in
+        %p Instagram: @jbglass_
+        %p
+          facebook:
+          %a{:href => "#", :style => "text-decoration: underline;color:#c1c1c1"} @jbglass.in
+    
