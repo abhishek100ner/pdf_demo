@@ -1,0 +1,72 @@
+!!!
+%html
+  %head
+    = wicked_pdf_stylesheet_link_tag "custom"
+    = wicked_pdf_stylesheet_link_tag "style"
+    :css
+      body{background-color: #fff;}
+      page{ margin-left: -10px !important; display:block; clear:both; page-break-before:always !important; }
+  %body
+    %page.page-1{:size => "A4"}
+      .img-main-block= wicked_pdf_image_tag @data["logo_url"]
+      .text-block-page-1
+        %p{:style => "font-size: 22px"}= @data["project_description"]['project_name']
+        %p= @data["project_description"]['architect_name']
+        %p= @data['date']
+    %page.page-2{:size => "A4"}
+      .text-block-page-2
+        %h1 CONGRATULATIONS !
+        %p On choosing WALTZ by JB Glass, our signature range of premium door & partition systems.
+        %p
+          Slim Aluminum profiles, hidden structural mechanism and wide selection of clear and
+          opaque materials ensure perfect integration of walls and door, guaranteeing utmost freedom of design to enhance your space aesthetics.
+        %p From Hinge to Sliding doors, and Pivot doors to Shower Enclosures, WALTZ has a perfect solution for all your interior spaces.
+        .btn-type
+          %a{:href => "#ordersummary"} Let's view your order
+    %page#ordersummary.page-3{:size => "A4"}
+      .black-band
+        .width-25
+          %p WALTZ . SWING
+          = wicked_pdf_image_tag 'WALTZ-SWING.jpg'
+        .width-25
+          %p WALTZ . SLIDE
+          = wicked_pdf_image_tag 'WALTZ-SLIDE.jpg'
+        .width-25
+          %p WALTZ . GLIDE
+          = wicked_pdf_image_tag 'WALTZ-GLIDE.jpg'
+        .width-25
+          %p WALTZ . CLOSE
+          = wicked_pdf_image_tag 'WALTZ-CLOSE.jpg'
+      .text-block-page-3
+        %p.order-head{:style => "margin-bottom: 10px;"} ORDER SUMMARY
+        .project-summary
+          - @data["project_description"].each do |item|
+            %p
+              = "#{item[0]} : #{item[1]}"
+        %div{:style => "padding: 0 1.5cm"}
+          %table.table.table-striped
+            - table_column = []
+            - @data['product_categories'].each do |product_category|
+              - product_category['products'].each do |product|
+                - table_column += product.keys
+            - table_column = table_column.uniq.first(7)
+            %thead{:style => "color:#fff; background: #000; "}
+              %tr
+                %th S.No.
+                - table_column.each do |column|
+                  %th= column
+            %tbody
+              - product_count = 1
+              - @data['product_categories'].each do |product_category|
+                - product_category['products'].each do |product|
+                  %tr
+                    %td
+                      .number2
+                        = product_count
+                        - product_count += 1
+                    - table_column.each do |key|
+                      %td= product[key]
+              
+        .footer
+          %p.bottom-link WALTZ.JBGLASS.IN
+          %p.pagination 3

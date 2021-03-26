@@ -626,13 +626,19 @@ textarea{
 	text-align: right;
 }
 .text-block-page-4 {
-	margin:1cm 2cm 0cm;
+	margin:0cm 2cm 0cm;
 	padding-bottom: 0.5cm;
 	border-bottom: 2px dotted #ccc;
 }
 .img-block{
+    height: 330px;
 	padding-top: 0.7cm;
 }
+
+.img-block1{
+    padding-top: 0.7cm;
+}
+
 .text-block-page-4 p.order-head{
     font-size: 22px !important;
     line-height: 26px;
@@ -676,7 +682,7 @@ textarea{
 	float: left;
 }
 .width-img img{
-    height: 517px !important;
+    height: 490px !important;
 }
 .width-img p{
 	padding-left:1.5cm;
@@ -874,17 +880,16 @@ ul.text-list li{
 
 page.page-1[size="A4"] {
   background: black;
-  width: 21cm;
-  height: 29.7cm;
+  width: 21.5cm;
+  height: 30.3cm;
   display: block;
   margin: 0 auto;
-  margin-bottom: 0.5cm;
   padding:0 !important;
 }
 page.page-2[size="A4"] {
   background: #fff;
   width: 21cm;
-  height: 29.7cm;
+  height: auto;
   display: block;
   margin: 0 auto;
   margin-bottom: 0.5cm;
@@ -894,7 +899,7 @@ page.page-2[size="A4"] {
 page.page-3[size="A4"] {
   background: #fff;
   width: 21cm;
-  height: 29.7cm;
+  height: auto;
   display: block;
   margin: 0 auto;
   margin-bottom: 0.5cm;
@@ -904,7 +909,7 @@ page.page-3[size="A4"] {
 page.page-4[size="A4"] {
   background: #fff;
   width: 21cm;
-  height: 29.7cm;
+  height: auto;
   display: block;
   margin: 0 auto;
   margin-bottom: 0.5cm;
@@ -914,7 +919,7 @@ page.page-4[size="A4"] {
 page.page-5[size="A4"] {
   background: #fff;
   width: 21cm;
-  height: 29.7cm;
+  height: auto;
   display: block;
   margin: 0 auto;
   margin-bottom: 0.5cm;
@@ -924,7 +929,7 @@ page.page-5[size="A4"] {
 page.page-6[size="A4"] {
   background: #fff;
   width: 21cm;
-  height: 29.7cm;
+  height: auto;
   display: block;
   margin: 0 auto;
   margin-bottom: 0.5cm;
@@ -934,7 +939,7 @@ page.page-6[size="A4"] {
 page.page-7[size="A4"] {
   background: #fff;
   width: 21cm;
-  height: 29.7cm;
+  height: auto;
   display: block;
   margin: 0 auto;
   margin-bottom: 0.5cm;
@@ -944,7 +949,7 @@ page.page-7[size="A4"] {
 page.page-8[size="A4"] {
   background: #fff;
   width: 21cm;
-  height: 29.7cm;
+  height: auto;
   display: block;
   margin: 0 auto;
   margin-bottom: 0.5cm;
@@ -954,7 +959,7 @@ page.page-8[size="A4"] {
 page.page-9[size="A4"] {
   background: #fff;
   width: 21cm;
-  height: 29.7cm;
+  height: auto;
   display: block;
   margin: 0 auto;
   margin-bottom: 0.5cm;
@@ -964,7 +969,7 @@ page.page-9[size="A4"] {
 page.page-10[size="A4"] {
   background: #fff;
   width: 21cm;
-  height: 29.7cm;
+  height: auto;
   display: block;
   margin: 0 auto;
   margin-bottom: 0.5cm;
@@ -975,12 +980,27 @@ page.page-10[size="A4"] {
 page.page-11[size="A4"] {
   background: #000;
   width: 21cm;
-  height: 29.7cm;
+  height: 29.6cm;
   display: block;
   margin: 0 auto;
-  margin-bottom: 0.5cm;
   padding:0 !important;
   
+}
+
+page.page-header[size="A4"] {
+  background: #fff;
+  width: 21cm;
+  display: block;
+  margin: 0;
+  padding:0 !important;
+}
+
+page.page-footer[size="A4"] {
+  background: #fff;
+  width: 15cm;
+  display: block;
+  margin: 0 auto;
+  padding:0 !important;
 }
 @media print {
   body, page[size="A4"] {

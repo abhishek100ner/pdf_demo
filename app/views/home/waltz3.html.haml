@@ -1,0 +1,92 @@
+!!!
+%html
+  %head
+    = wicked_pdf_stylesheet_link_tag "custom"
+    = wicked_pdf_stylesheet_link_tag "style"
+    :css
+      body{background-color: #fff;}
+      page{ margin-left: -10px !important; display:block; clear:both; page-break-before:always !important; }
+  %body
+    %page#waltzslide.page-8{:size => "A4"}
+      .text-block-page-3
+        %p.order-head{:style => "margin-bottom: 10px;"} ESTIMATE
+        .project-summary-3
+          - @data["project_description"].each do |item|
+            %p
+              = "#{item[0]} : #{item[1]}"
+        .project-detail
+          %table.full-summary
+            - total_amount = 0
+            - product_count = 1
+            - @data['product_categories'].each do |product_category|
+              - product_category['products'].each do |product|
+                %tr
+                  %td
+                    .number
+                      = product_count
+                      - product_count += 1
+                  %td= wicked_pdf_image_tag product_category['img_url'], width: "100", height: "100"
+                  %td
+                    %p{:style => "margin:0px;color:#8a5e3c"}= product_category['product_category_name']
+                    %p{:style => "margin:0px"}= product['sub_system']
+                    %p{:style => "margin:0px"}= product['Configuration']
+                  %td{:style => "text-align: left"}
+                    %p{:style => "margin:0px"}
+                      Floor #{product['floor']}#{product['space_room']}
+                    %p{:style => "margin:0px"}
+                      = product['height']
+                      x #{product['width']}
+                    %p{:style => "margin:0px"}
+                      = product['qty']
+                      @ #{product['price']}
+                    - product_category['sub_categories'].each do |sub_category|
+                      %p{:style => "margin:0px"}
+                        = sub_category['sub_categories_finish_type']
+                        \: #{sub_category['sub_categories_finish_name']}
+                  - amount = (product['qty'].to_i * product['price'].to_i)
+                  - total_amount = total_amount +  amount
+                  %td
+                    ₹ #{total_amount}
+            %tr
+              %td{:style => "border:none;"}
+              %td{:style => "border:none;"}
+              %td{:style => "border:none;"}
+              %td{:style => "border:none;text-align: left"}
+                %p{:style => "margin:15px 0 0;font-family: 'Helvetica Neue Medium' !important;font-size: 16px"} GRAND TOTAL
+              %td{:style => "border:none;"}
+                %p{:style => "margin:15px 0 0;font-family: 'Helvetica Neue Medium' !important;font-size: 16px"}
+                  ₹ #{total_amount}
+          %div{:style => "margin:20px;float: right;width:56%"}
+            %p{:style => "background: #000; color: #fff; padding:5px 10px;"} * ALL INCLUSIVE PRICE. NO HIDDEN CHARGES.
+          %div{:style => "display: flex;width: 100%"}
+            %p{:style => "color:#232323"} ** T&C apply
+    %page.page-9{:size => "A4"}
+      .text-block-page-9
+        %h1 ANNEXURE
+        %p{:style => "color:#232323;text-decoration: underline;"} TERMS AND CONDITIONS
+        %ul.text-list{:style => "margin-left: -23px;"}
+          %li All quantities are tentative only
+          %li Shop Drawing(s) need to be approved before production.
+          %li Approved shop drawings will be generated after order placement.
+          %li Lead time is 6-8 Weeks
+          %li Our scope does not include Civil Work / Scaffolding / MS work
+          %li Waltz is a customized system. Therefore, an order once placed, cannot be modified or cancelled.
+        %p{:style => "color:#232323;text-decoration: underline;"} PAYMENT TERMS
+        %ul.text-list{:style => "margin-left: -23px;"}
+          %li 70% of Order amount as advance
+          %li Balance before dispatch
+        %p{:style => "color:#232323;text-decoration: underline;"} ESTIMATE REVISIONS
+        %ul.text-list{:style => "margin-left: -23px;"}
+          %li
+            %a{:href => "#", :style => "text-decoration: underline;color:#0551b1"} Estimate revision JB/WALTZ/01052020-R02
+          %li
+            %a{:href => "#", :style => "text-decoration: underline;color:#0551b1"} Estimate revision JB/WALTZ/01052020-R01
+        %p{:style => "color:#232323;text-decoration: underline;"} FAQs
+        %p{:style => "font-size: 14px;line-height: 20px !important; font-family: 'Helvetica Neue Light' !important"}
+          You will find answers to most of your queries in the Frequenty Asked Questions (FAQs) section on our website @
+          = succeed "." do
+            %a{:href => "#", :style => "text-decoration: underline;color:#0551b1"} waltz.jbglass.in/faqs
+          %strong +91 1234 5678
+          or email us at
+          %a{:href => "#", :style => "text-decoration: underline;color:#0551b1"} support@jbglass.in
+    

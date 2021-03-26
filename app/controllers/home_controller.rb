@@ -8,25 +8,32 @@ class HomeController < ApplicationController
   	respond_to do |format|
       format.html
       format.pdf do
-        @pdf = render_to_string pdf: "example",
-                                template: 'home/waltz.html.haml',
-                                background: false,
-                                show_as_html: true,
-                                zoom: 1.9,
-                                margin:  {   
-                                  top: 0,             
-                                  bottom: 0,
-                                  left: 0,
-                                  right:0
-                                }
-        send_data(@pdf, :filename => "example.pdf",  :type=>"application/pdf")  
+        combiner = CombinePDF.new
+        pdf1 = render_to_string pdf: "example", template: 'home/waltz1.html.haml', background: false, zoom: 1.8, margin:  { top: 0, bottom: 0, left: 0, right:0 }
+        combiner << CombinePDF.parse(pdf1)
+        @count = combiner.pages.count || 3
+        pdf2 = render_to_string pdf: "example", template: 'home/waltz2.html.haml', background: false, zoom: 1.7,
+                                header: { html: { template: 'home/header.html.haml'}, margin:  { top: 0, bottom: 0, left: 0, right:0 }},
+                                footer: { html:{ template: 'home/footer.html.haml'},margin:  { top: 0, bottom: 0, left: 0, right:0 }},
+                                margin:  { top: 28, bottom: 16, left: 0, right:0 }
+        combiner << CombinePDF.parse(pdf2)
+        @count = combiner.pages.count || 8
+        pdf3 = render_to_string pdf: "example", template: 'home/waltz3.html.haml', background: false, zoom: 1.8,
+                                header: { html: { template: 'home/header2.html.haml'}, margin:  { top: 0, bottom: 0, left: 0, right:0 }},
+                                footer: { html:{ template: 'home/footer.html.haml'},margin:  { top: 0, bottom: 0, left: 0, right:0 }},
+                                margin:  {  top: 28,  bottom: 16, left: 0, right:0 }
+        combiner << CombinePDF.parse(pdf3)
+        pdf4 = render_to_string pdf: "example", template: 'home/waltz4.html.haml', background: false, zoom: 1.8, margin:  { top: 0, bottom: 0, left: 0, right:0 }
+        combiner << CombinePDF.parse(pdf4)
+        send_data(combiner.to_pdf, :filename => "example.pdf",  :type=>"application/pdf")  
       end
     end
   end
 
   def get_sample_data
     {
-      "logo_url" => "img-2.jpg", 
+      "logo_url" => "img-2.jpg",
+      "project_logo_url" => "logo.jpg",
       "date" => "10 June 2020",
       "project_description" => {
         "Project" => "Residence XYZ",

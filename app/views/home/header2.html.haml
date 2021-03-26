@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    = wicked_pdf_stylesheet_link_tag "style"
+    :css
+      body{background-color: #fff;}
+  %body 
+    %page#waltzglide.page-header{:size => "A4"}
+      .black-band
+        .width-25
+          %p WALTZ . SWING
+          = wicked_pdf_image_tag 'WALTZ-SWING.jpg'
+        .width-25
+          %p WALTZ . SLIDE
+          = wicked_pdf_image_tag 'WALTZ-SLIDE.jpg'
+        .width-25
+          %p WALTZ . GLIDE
+          = wicked_pdf_image_tag 'WALTZ-GLIDE.jpg'
+        .width-25
+          %p WALTZ . CLOSE
+          = wicked_pdf_image_tag 'WALTZ-CLOSE.jpg'
+      

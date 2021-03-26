@@ -1,0 +1,102 @@
+!!!
+%html
+  %head
+    = wicked_pdf_stylesheet_link_tag "custom"
+    = wicked_pdf_stylesheet_link_tag "style"
+    :css
+      body{background-color: #fff;}
+      page{ margin-left: -10px !important; display:block; clear:both; page-break-before:always !important; }
+  %body
+    - @data['product_categories'].each_with_index do |product_category, index| 
+      %page#waltzglide.page-4{:size => "A4"}
+        %br
+        .text-block-page-4
+          .border-line
+            %div{:style => "padding-top: 10px;"}
+              %p.order-head{:style => "margin-bottom: 10px"}= product_category['product_category_name']
+            .width-60
+              - product_category["products_category_description"].each do |item|
+                %p
+                  = "#{item[0]} : #{item[1]}"
+            .width-60
+              - product_category['sub_categories'].first(3).each do |sub_category|
+                %p{:style => "padding-left: 20%"}
+                  = sub_category['sub_categories_finish_type']
+                  \: #{sub_category['sub_categories_finish_name']}  
+        .img-block
+          .width-img
+            = wicked_pdf_image_tag product_category['img_url']
+            %p Reference image: WALTZ.GLIDE
+          .width-img-2
+            - product_category['sub_categories'].first(3).each do |sub_category|
+              = wicked_pdf_image_tag sub_category['img_url'], height: "80"
+              %p{:style => "margin:0"}
+                = sub_category['sub_categories_finish_type']
+                Finish
+              %p{:style => "margin:0 0 10px"}= sub_category['sub_categories_finish_name']
+        /
+          <div class="view-drawings">
+          <a href="#" class="btn-view">View drawings</a><br><br>
+          <a href="#ordersummary" style="text-decoration: underline;color:#0551b1">Back to Order Summary</a>
+          </div>
+        .col-md-12.comments
+          %form{:action => "#"}
+            %p{:style => "margin-bottom: 10px;color:#232323"} Remarks / Comments
+            %textarea{:rows => "4"}
+      - if product_category['sub_categories'].size > 3
+        %page#waltzglide.page-4{:size => "A4"}
+          %br
+          .text-block-page-4
+            .border-line
+              %div{:style => "padding-top: 10px;"}
+                %p.order-head{:style => "margin-bottom: 10px"}= product_category['product_category_name']
+              .width-60
+                - product_category["products_category_description"].each do |item|
+                  %p
+                    = "#{item[0]} : #{item[1]}"
+              .width-60
+                - product_category['sub_categories'].from(3).each do |sub_category|
+                  %p{:style => "padding-left: 20%"}
+                    = sub_category['sub_categories_finish_type']
+                    \: #{sub_category['sub_categories_finish_name']}  
+          .img-block
+            .width-img
+              = wicked_pdf_image_tag product_category['img_url']
+              %p Reference image: WALTZ.GLIDE
+            .width-img-2
+              - product_category['sub_categories'].from(3).each do |sub_category|
+                = wicked_pdf_image_tag sub_category['img_url'], height: "80"
+                %p{:style => "margin:0"}
+                  = sub_category['sub_categories_finish_type']
+                  Finish
+                %p{:style => "margin:0 0 10px"}= sub_category['sub_categories_finish_name']
+          /
+            <div class="view-drawings">
+            <a href="#" class="btn-view">View drawings</a><br><br>
+            <a href="#ordersummary" style="text-decoration: underline;color:#0551b1">Back to Order Summary</a>
+            </div>
+          .col-md-12.comments
+            %form{:action => "#"}
+              %p{:style => "margin-bottom: 10px;color:#232323"} Remarks / Comments
+              %textarea{:rows => "4"}
+      
+      %page#waltzslide.page-5{:size => "A4"}
+        %br
+        .text-block-page-4
+          .border-line
+            %div{:style => "padding-top: 10px;"}
+              %p.order-head{:style => "margin-bottom: 10px"}= product_category['product_category_name']
+            .width-60
+              - product_category["products_category_description"].each do |item|
+                %p
+                  = "#{item[0]} : #{item[1]}"
+            .width-60
+              - product_category['sub_categories'].first(3).each do |sub_category|
+                %p{:style => "padding-left: 20%"}
+                  = sub_category['sub_categories_finish_type']
+                  \: #{sub_category['sub_categories_finish_name']}
+        .img-block1
+          = wicked_pdf_image_tag product_category['diagram_image_url']
+        .view-images
+          %p Plan, Elevation and Section
+    

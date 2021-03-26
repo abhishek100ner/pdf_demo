@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    = wicked_pdf_stylesheet_link_tag "style"
+    :css
+      body{background-color: #fff;}
+  %body 
+    %page#waltzglide.page-header{:size => "A4"}
+      .black-band
+        .width-50
+          .project
+            - @data["project_description"].each do |item|
+              %p
+                = "#{item[0]} : #{item[1]}"
+        .width-50
+          .logo
+            = wicked_pdf_image_tag @data["project_logo_url"]
+    

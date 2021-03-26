@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    = wicked_pdf_stylesheet_link_tag "custom"
+    = wicked_pdf_stylesheet_link_tag "style"
+    :css
+      body{background-color: #fff;}
+      page{ margin-left: -10px !important; display:block; clear:both; page-break-before:always !important; }
+  %body    
+    %page.page-11{:size => "A4"}
+      .img-main-block= wicked_pdf_image_tag @data["logo_url"]
+      .text-block-page-10
+        %p{:style => "font-family: 'Helvetica Neue Light' !important"} ASSOCIATE NAME
+        %p ASSOCIATE ADDRESS
+        %p ASSOCIATE PHONE | EMAIL ID
+      .text-block-page-11
+        %p
+          %a{:href => "http://www.waltz.jbglass.in/", :style => "text-decoration: underline;color:#c1c1c1"} waltz.jbglass.in
+        %p Instagram: @jbglass_
+        %p
+          facebook:
+          %a{:href => "#", :style => "text-decoration: underline;color:#c1c1c1"} @jbglass.in
