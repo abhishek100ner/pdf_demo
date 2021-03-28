@@ -875,7 +875,14 @@ ul.text-list li{
     font-family: 'Helvetica Neue Light' !important;
     margin-bottom: 7px;
 }
+.sub-images{
+  display: inline-block;
+}
 
+.sub-images img{
+  width: 120px;
+  height: 120px;
+}
 /******Common all pages******/
 
 page.page-1[size="A4"] {
