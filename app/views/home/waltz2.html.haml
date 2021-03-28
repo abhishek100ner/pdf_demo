@@ -34,7 +34,7 @@
                 = sub_category['sub_categories_finish_type']
                 Finish
               %p{:style => "margin:0 0 10px"}= sub_category['sub_categories_finish_name']
-        %br
+              
         .col-md-12.sub-images
           - if product_category['sub_categories'].size > 3
             - product_category['sub_categories'].from(3).first(6).each do |sub_category|

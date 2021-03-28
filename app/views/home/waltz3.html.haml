@@ -43,8 +43,8 @@
                       %p{:style => "margin:0px"}
                         = sub_category['sub_categories_finish_type']
                         \: #{sub_category['sub_categories_finish_name']}
-                    %p{:style => "margin:0px"} User Remark
                     %p{:style => "margin:0px"} System Remark
+                    %p{:style => "margin:0px"} Customer Remark
                   - amount = (product['qty'].to_i * product['price'].to_i)
                   - total_amount = total_amount +  amount
                   %td
